@@ -25,5 +25,8 @@ void Widget::on_pushButton_clicked()
     mainCreator.setTemplate();
     mainCreator.printReport("test2.pdf");
     mainCreator.clearReport();
+    // открытие pdf
+    QDesktopServices::openUrl(QUrl("test2.pdf"));
+
 }
 

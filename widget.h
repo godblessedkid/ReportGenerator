@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QDesktopServices>
 #include "reportcreator.h"
 
 QT_BEGIN_NAMESPACE

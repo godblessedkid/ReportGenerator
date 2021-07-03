@@ -19,7 +19,7 @@ public:
     void addHeader();
     void addTask(const QString &pathToTask);
     void addLog(const QString &pathToLog);
-    void addPicture(const QString &pathToPicture);
+    void addPicture(const QString &pathToPicture, const QString &nameOfPicture);
     void clearReport();
 
 

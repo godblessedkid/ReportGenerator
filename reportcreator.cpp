@@ -15,7 +15,7 @@ void reportCreator::addHeader()
 {
    QDate currDate = QDate::currentDate();
    QTime currTime = QTime::currentTime();
-   QString toAdd;
+   QString toAdd("<html><body style = \"font-family:'Times New Roman',sans-serif\"");
    toAdd.append("<p align = \"left\">"+currDate.toString("dd/MM/yy")+"</p>");
    toAdd.append("<p align = \"left\">"+currTime.toString()+"</p>");
    toAdd.append("<h1 align = \"center\">Отчёт</h1>");
@@ -27,7 +27,7 @@ void reportCreator::addHeader()
 
 void reportCreator::addTask(const QString &pathToTask)
 {
-    QString toAdd("<p> Задание </p><p>");
+    QString toAdd("<p><strong> Задание </strong></p><p>");
     QFile file(pathToTask);
     if ( !file.open(QFile::ReadOnly | QFile::Text) ) {
         qDebug() << "File not exists";
@@ -48,7 +48,7 @@ void reportCreator::addTask(const QString &pathToTask)
 
 void reportCreator::addLog(const QString &pathToLog)
 {
-    QString toAdd("<p> Результаты </p><table border = \"2\">");
+    QString toAdd("<p><strong> Результаты </strong></p><p><table border = \"1\">");
     QFile file(pathToLog);
     if ( !file.open(QFile::ReadOnly | QFile::Text) ) {
         qDebug() << "File not exists";
@@ -71,15 +71,15 @@ void reportCreator::addLog(const QString &pathToLog)
 
 
     }
-    toAdd.append("</table>");
+    toAdd.append("</table></p>");
     html += toAdd;
     }
 }
 
-void reportCreator::addPicture(const QString &pathToPicture)
+void reportCreator::addPicture(const QString &pathToPicture, const QString &nameOfPicture)
 {
-    QString toAdd("<p>График картинка какого-то результата</p>");
-    toAdd.append("<img alt = \"Текст картинки\" allign = \"left\" hspace =\"100\" src =\"" + pathToPicture + "\" width = \"400\" height = \"400\"");
+    QString toAdd("<p align = \"center\"><strong>"+nameOfPicture+"<strong></p>");
+    toAdd.append("<p><img align = \"center\" hspace =\"100\" src =\"" + pathToPicture + "\" width = \"650\" height = \"400\"></p>");
     html += toAdd;
 }
 
